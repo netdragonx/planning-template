@@ -29,6 +29,57 @@ The Linear MCP must be connected to use Linear task creation features:
 claude mcp add --transport http linear https://mcp.linear.app/mcp
 ```
 
+## Linear Task Format Guide
+
+When creating Linear tasks, use this consistent format:
+
+### Title
+- Concise, action-oriented (start with verb when possible)
+- Example: "Add user authentication to dashboard" not "User authentication"
+
+### Description Structure
+```markdown
+## Overview
+Brief description of what needs to be done and why
+
+## Requirements
+- Specific requirement 1
+- Specific requirement 2
+- Specific requirement 3
+
+## Acceptance Criteria
+- [ ] Criterion 1
+- [ ] Criterion 2
+- [ ] Criterion 3
+
+## Status Management
+**IMPORTANT**: When working on this task:
+- Move to **In Progress** when you start working
+- Move to **In Review** when you finish working
+- Never skip statuses (don't go directly from Todo to In Review)
+
+## Technical Notes (optional)
+Any relevant technical context, constraints, or considerations
+
+## Dependencies (optional)
+- Links to related tasks or blockers
+```
+
+### Labels and Metadata
+- Always include difficulty estimate: `easy`, `medium`, or `hard`
+- Add relevant feature/area labels
+- Set appropriate priority if specified
+
+## Linear Task Status Management
+
+**CRITICAL**: Agents working on Linear tasks MUST follow this status workflow:
+
+1. **Starting Work**: When an agent begins working on a task, it MUST move the task to **In Progress** status immediately
+2. **Completing Work**: When an agent finishes working on a task, it MUST move the task to **In Review** status
+3. **Never skip statuses**: Do not move tasks directly from Todo to In Review
+
+This ensures visibility into what's actively being worked on.
+
 ## File Organization
 
 - Root directory: Active working files and drafts
